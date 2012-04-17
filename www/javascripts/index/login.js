@@ -169,20 +169,21 @@ $(document).ready(function() {
   }
 
   function onLoggedIn(token) {
+      $.support.cors = true;
 	  resetUserValues();
 	  $.mobile.showPageLoadingMsg();
     // Send the token to the server
     // We get the session token in the response header
     // If any error occurred, show error.
 	  var loginResponse;
-      console
-      console.log("SSSSSSSS: " + address + 'auth/login/');
+      console.log('SSSSSSSS: ' + address + 'auth/login/');
 	  loginResponse = $.ajax({
-		  url: address + 'auth/login/',
+		  url: address + 'auth/login',
 		  type: 'POST',
 		  timeout: 8000,
 		  contentType:"application/json",
 		  data: '{"token":"'+token+'"}',
+          cache: false,
 		  	success: function(data) { //Signed in!
 		  		alert("Du er innlogget");
 		  		student = data;
@@ -202,6 +203,7 @@ $(document).ready(function() {
 		  	// Sign in failed! Server is down,
 		  	// or user logged in with a non NITH google account
 		  	error: function(xhr, status) { // Signed in failed
+                console.log(JSON.stringify(xhr));
                 console.log('CCCCcCCCCCCCCCCCCCCCCCCCCCCC');
 		  		//var resError = loginResponse.getResponseHeader('error');
                 //console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
