@@ -1,6 +1,0 @@
-﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="niths-wp7-fadderuke-app" EntryPointType="niths_wp7_fadderuke_app.App" RuntimeVersion="4.7.50308.0">
-  <Deployment.Parts>
-    <AssemblyPart x:Name="niths-wp7-fadderuke-app" Source="niths-wp7-fadderuke-app.dll" />
-    <AssemblyPart x:Name="WP7CordovaClassLib" Source="WP7CordovaClassLib.dll" />
-  </Deployment.Parts>
-</Deployment>
