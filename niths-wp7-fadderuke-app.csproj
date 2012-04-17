@@ -65,6 +65,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Plugins\CodeFile1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -110,9 +111,9 @@
     <Content Include="www\views\profile.html" />
     <Content Include="www\views\qr-code.html" />
     <None Include="BuildManifestProcessor.js" />
-    <Resource Include="www\childbrowser\icon_arrow_left.png" />
-    <Resource Include="www\childbrowser\icon_arrow_right.png" />
-    <Resource Include="www\childbrowser\icon_close.png" />
+    <Content Include="www\childbrowser\icon_arrow_left.png" />
+    <Content Include="www\childbrowser\icon_arrow_right.png" />
+    <Content Include="www\childbrowser\icon_close.png" />
     <Content Include="www\cordova-1.4.1.js" />
     <Resource Include="www\images\ajax-loader.png" />
     <Resource Include="www\images\icons-18-black-pack.png" />
@@ -175,9 +176,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Plugins\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

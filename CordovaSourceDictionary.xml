@@ -3,6 +3,7 @@
 <CordovaSourceDictionary>
     <FilePath Value="www\cordova-1.4.1.js"/>
     <FilePath Value="www\index.html"/>
+    <FilePath Value="www\index2.html"/>
     <FilePath Value="www\master.css"/>
     <FilePath Value="www\childbrowser\icon_arrow_left.png"/>
     <FilePath Value="www\childbrowser\icon_arrow_right.png"/>
