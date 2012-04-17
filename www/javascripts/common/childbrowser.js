@@ -73,7 +73,7 @@ ChildBrowser.prototype.showWebPage = function(loc,geolocationEnabled)
 // close the browser, will NOT result in close callback
 ChildBrowser.prototype.close = function()
 {
-  PhoneGap.exec(null,null,"ChildBrowserCommand","close");
+  Cordova.exec(null,null,"ChildBrowserCommand","close");
 };
 
 // Not Implemented

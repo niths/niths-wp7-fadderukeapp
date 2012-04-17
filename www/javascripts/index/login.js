@@ -175,17 +175,23 @@ $(document).ready(function() {
     // We get the session token in the response header
     // If any error occurred, show error.
 	  var loginResponse;
+      console
+      console.log("SSSSSSSS: " + address + 'auth/login/');
 	  loginResponse = $.ajax({
 		  url: address + 'auth/login/',
-		  type: 'post',
-		  timeout: 3000,
+		  type: 'POST',
+		  timeout: 8000,
 		  contentType:"application/json",
 		  data: '{"token":"'+token+'"}',
 		  	success: function(data) { //Signed in!
 		  		alert("Du er innlogget");
 		  		student = data;
+             
+      
 		  		sessionToken = loginResponse.getResponseHeader('session-token');
+           
 		  		//studentId = loginResponse.getResponseHeader('student-id');
+          
     	  
 		  		checkIfLeader();
 		  		getGroup();
@@ -196,8 +202,11 @@ $(document).ready(function() {
 		  	// Sign in failed! Server is down,
 		  	// or user logged in with a non NITH google account
 		  	error: function(xhr, status) { // Signed in failed
-		  		var resError = loginResponse.getResponseHeader('error');
-		  		//$('#error').empty();
+                console.log('CCCCcCCCCCCCCCCCCCCCCCCCCCCC');
+		  		//var resError = loginResponse.getResponseHeader('error');
+                //console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+		  		/*
+                $('#error').empty();
 		  		if(resError == 'Email not valid'){
 		  			sessionToken = "-1";
 		  			alert('Bruker har ikke @nith.no mail, logg ut og inn igjen');    		
@@ -206,6 +215,7 @@ $(document).ready(function() {
 		  		}else{
 		  			alert('En feil skjedde, vennligst logg inn igjen');    		    		
 		  		}
+                */
 		  		toggleBtnText();
 		  		$.mobile.hidePageLoadingMsg();
 		  	}
