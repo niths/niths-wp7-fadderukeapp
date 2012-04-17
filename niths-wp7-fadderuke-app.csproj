@@ -82,13 +82,13 @@
     <Content Include="GapLib\WP7CordovaClassLib.dll" />
     <Content Include="www\stylesheets\all-fadder-groups.css" />
     <Content Include="www\stylesheets\common\application.css" />
-    <Resource Include="www\stylesheets\common\images\ajax-loader.png" />
-    <Resource Include="www\stylesheets\common\images\aload.gif" />
-    <Resource Include="www\stylesheets\common\images\icons-18-black.png" />
-    <Resource Include="www\stylesheets\common\images\icons-18-white.png" />
-    <Resource Include="www\stylesheets\common\images\icons-36-black.png" />
-    <Resource Include="www\stylesheets\common\images\icons-36-white.png" />
-    <Resource Include="www\stylesheets\common\images\loader.png" />
+    <Content Include="www\stylesheets\common\images\ajax-loader.png" />
+    <Content Include="www\stylesheets\common\images\aload.gif" />
+    <Content Include="www\stylesheets\common\images\icons-18-black.png" />
+    <Content Include="www\stylesheets\common\images\icons-18-white.png" />
+    <Content Include="www\stylesheets\common\images\icons-36-black.png" />
+    <Content Include="www\stylesheets\common\images\icons-36-white.png" />
+    <Content Include="www\stylesheets\common\images\loader.png" />
     <Content Include="www\stylesheets\common\jq-m-uncom-custom.css" />
     <Content Include="www\stylesheets\common\jquery-mobile.css" />
     <Content Include="www\stylesheets\common\jquery.mobile.scrollview.css" />
@@ -104,7 +104,9 @@
     <Content Include="www\views\fadder-groups\fadder-children\send-email.html" />
     <Content Include="www\views\fadder-groups\fadder-group-info.html" />
     <Content Include="www\views\fadder-groups\fadder-groups.html" />
-    <Content Include="www\index.html" />
+    <Content Include="www\index.html">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="www\views\profile.html" />
     <Content Include="www\views\qr-code.html" />
     <None Include="BuildManifestProcessor.js" />
