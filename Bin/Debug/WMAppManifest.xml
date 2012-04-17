@@ -3,7 +3,7 @@
   <App xmlns="" ProductID="{1f94adee-d210-4f68-bf22-f0c4f38adc4c}" Title="niths_wp7_fadderuke_app" 
        RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  
        Author="niths_wp7_fadderuke_app author" 
-       Description="PhoneGap for Windows Phone 7" 
+       Description="Cordova for Windows Phone 7" 
        Publisher="niths_wp7_fadderuke_app">
     
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>

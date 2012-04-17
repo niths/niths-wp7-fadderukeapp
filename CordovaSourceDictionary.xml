@@ -19,6 +19,7 @@
     <FilePath Value="www\javascripts\qr-code.js"/>
     <FilePath Value="www\javascripts\common\application.js"/>
     <FilePath Value="www\javascripts\common\childbrowser.js"/>
+    <FilePath Value="www\javascripts\common\cordova.js"/>
     <FilePath Value="www\javascripts\common\google-client.js"/>
     <FilePath Value="www\javascripts\common\jquery-mobile.js"/>
     <FilePath Value="www\javascripts\common\jquery.easing.1.3.js"/>

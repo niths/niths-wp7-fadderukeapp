@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,9 +11,9 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using WP7CordovaClassLib.Cordova.Commands;
 using WP7CordovaClassLib.Cordova.UI;
 using WP7CordovaClassLib.Cordova.JSON;
-using WP7CordovaClassLib.Cordova.Commands;
 using Microsoft.Phone.Shell;
 
 namespace WP7CordovaClassLib.Cordova.Commands

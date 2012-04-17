@@ -7,6 +7,9 @@ $(document).ready(function() {
   toggleBtnText();
 
   $('#loginbtn').click(function() {
+      console.log("CB: " + ChildBrowser);
+      ChildBrowser.install();
+
 	  if(sessionToken == ""){ //Not signed in
 		  ///////////////FOR TESTING:
 		  // TODO Remove
