@@ -1,7 +1,5 @@
-#error {
-  color: #f22;
-  text-align: center;"
-}
+
+
 
 .val {
   float: right;
@@ -36,6 +34,7 @@
 	margin-bottom:10px;
 	border-bottom: dotted 2px black;	
 	border-top: dotted 2px black;	
+	height:82px;
 }
 
 .bottomborder {
@@ -43,3 +42,16 @@
 	border-bottom: dotted 2px black;
 }
 
+a.blacklink:link{
+	color:black;
+	text-decoration: none;
+}
+a.blacklink:visited {
+	text-decoration: none;
+	color:black;
+}
+
+a.blacklink:active {
+	text-decoration: none;
+	color: #00ADEF;
+}

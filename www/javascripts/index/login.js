@@ -1,28 +1,23 @@
+$("#dashboard-page").live('pageshow', function() {
+	 if(sessionToken == ""){
+			$("#loginbtn .ui-btn-text").text("Logg inn");
+			$('#adminsectionbtn').css('display', 'none');
+		}else{
+			$("#loginbtn .ui-btn-text").text("Logg ut");
+		}
+});
+
 $(document).ready(function() {
+
+
   var callbackURL      = 'http://niths.no/callback';
   var stateURLFragment = 'state=/profile';
   var isNITHMail       = false;
   
-//  $('#error').empty();
   toggleBtnText();
 
   $('#loginbtn').click(function() {
-      console.log("CB: " + ChildBrowser);
-      ChildBrowser.install();
-
 	  if(sessionToken == ""){ //Not signed in
-		  ///////////////FOR TESTING:
-		  // TODO Remove
-//		  role = 'ROLE_FADDER_LEADER';
-//		  sessionToken = "test-token";
-//		  student.id = 3;
-//		  student.email = 'rosben09@nith.no';
-//		  student.firstName = 'Bendik';
-//		  student.lastName = 'Rostad';
-//		  student.gender = 'M';
-//		  groupNumber = 3;
-		  ///////////////////////////
-		  
 		  resetUserValues();
 		  signIn(); 		  
 	  }else {				//Already signed in
@@ -39,7 +34,8 @@ $(document).ready(function() {
 			 signIn(); 
 		 }
 		 else if(sessionToken  != "-1"){ //Sign is succeeded, but not NITH mail: = -1;
-			 $.mobile.changePage('profile.html');
+			 //alert("LOGGED IN");
+			 $.mobile.changePage('views/profile.html');
 		 }
 	 });
 	 
@@ -86,7 +82,6 @@ $(document).ready(function() {
         
         toggleBtnText();
       } else{
-    	 // resetUserValues();
           toggleBtnText();
       }
     };
@@ -95,107 +90,37 @@ $(document).ready(function() {
   function toggleBtnText(){
 	  if(sessionToken == ""){
 			$("#loginbtn .ui-btn-text").text("Logg inn");
-//			$('#menubtn').css('visibility', 'hidden');
 		}else{
 			$("#loginbtn .ui-btn-text").text("Logg ut");
-//			if(sessionToken != "-1"){
-//				$('#menubtn').css('visibility', 'visible');				
-//			}
-			
 		}
   }
 
-  function getGroup() {
-		var response;
-		response = $.ajax({
-			url : address + 'fadder/getGroupBelongingTo/' + student.id,
-			type : 'get',
-			cache : false,
-			contentType : 'application/json',
-			timeout : 3000,
-			beforeSend : function(xhr) {
-				xhr.setRequestHeader("Authorization","Basic YWRtaW46bml0aHNfYWRtaW4=");
-			},
-			success : function(data) {
-				if(response.status == 200){
-					for (obj in data){
-						if(obj == 'groupNumber'){
-							groupNumber = data[obj];
-							alert("Din gruppe: " + groupNumber);
-						}
-					}
-				} 
-				else{
-					//$('#faddergroup').html("Ingen");
-					alert("Du har ingen faddergruppe");
-				}
-
-			},
-			error : function(xhr, status) {
-					alert("Greide ikke hente gruppe");
-			}
-		});
-	}
-  
-  /**
-   * Check if a student logging has the role fadder leader
-   * and sets the global variable role
-   */  
-  function checkIfLeader(){
-	 $.mobile.showPageLoadingMsg();
-	  var response;
-	  response = $.ajax({
-			url : address + 'roles/'+studentId+'/ROLE_FADDER_LEADER',
-			type : 'get',
-			timeout: 3000,
-			cache : false,
-			success : function() { //Server responded
-				//alert(response.status + '--' + response.getResponseHeader('error'));
-				if(response.status == 200){ //Got role!
-					role = 'ROLE_FADDER_LEADER';
-				}else if (response.status == 204){ //Did not have role
-					role = "";
-				}
-				$.mobile.hidePageLoadingMsg();
-			},
-			error : function(xhr, status) {
-				role = "";
-				if(status == 'timeout'){ //No contact with server
-					alert('Fikk ikke kontakt med serveren'); 
-				}
-				$.mobile.hidePageLoadingMsg();
-			}
-		});
-  }
 
   function onLoggedIn(token) {
-      $.support.cors = true;
 	  resetUserValues();
 	  $.mobile.showPageLoadingMsg();
     // Send the token to the server
     // We get the session token in the response header
     // If any error occurred, show error.
 	  var loginResponse;
-      console.log('SSSSSSSS: ' + address + 'auth/login/');
 	  loginResponse = $.ajax({
-		  url: address + 'auth/login',
-		  type: 'POST',
-		  timeout: 8000,
+		  url: address + 'auth/login/',
+		  type: 'post',
+		  timeout: 3000,
 		  contentType:"application/json",
 		  data: '{"token":"'+token+'"}',
-          cache: false,
 		  	success: function(data) { //Signed in!
 		  		alert("Du er innlogget");
 		  		student = data;
-             
-      
 		  		sessionToken = loginResponse.getResponseHeader('session-token');
-           
-		  		//studentId = loginResponse.getResponseHeader('student-id');
-          
-    	  
-		  		checkIfLeader();
-		  		getGroup();
+		  		
+		  		//If student is leader for a group, show admin btn
+		  		if(student.groupLeaders != null){ //NEEDED?
+		  			if(student.groupLeaders.length > 0){
+		  				$('#adminsectionbtn').css('display', 'block');		  				
+		  			}
+		  		}
+
 		  		toggleBtnText();
     	  
 		  		$.mobile.hidePageLoadingMsg();
@@ -203,12 +128,8 @@ $(document).ready(function() {
 		  	// Sign in failed! Server is down,
 		  	// or user logged in with a non NITH google account
 		  	error: function(xhr, status) { // Signed in failed
-                console.log(JSON.stringify(xhr));
-                console.log('CCCCcCCCCCCCCCCCCCCCCCCCCCCC');
-		  		//var resError = loginResponse.getResponseHeader('error');
-                //console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-		  		/*
-                $('#error').empty();
+		  		var resError = loginResponse.getResponseHeader('error');
+		  		//$('#error').empty();
 		  		if(resError == 'Email not valid'){
 		  			sessionToken = "-1";
 		  			alert('Bruker har ikke @nith.no mail, logg ut og inn igjen');    		
@@ -217,7 +138,6 @@ $(document).ready(function() {
 		  		}else{
 		  			alert('En feil skjedde, vennligst logg inn igjen');    		    		
 		  		}
-                */
 		  		toggleBtnText();
 		  		$.mobile.hidePageLoadingMsg();
 		  	}
@@ -227,10 +147,10 @@ $(document).ready(function() {
   //Resets logged in values
   function resetUserValues(){
 	  	sessionToken = '';
-  		studentId = 0;
-  		role = '';
+  		//role = '';
   		student= {};
-  		groupNumber = 0;
+  		//groupNumber = 0;
+  		$('#adminsectionbtn').css('display', 'none');
   }
 
 });

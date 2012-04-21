@@ -81,8 +81,24 @@
   <ItemGroup>
     <Content Include="CordovaSourceDictionary.xml" />
     <Content Include="GapLib\WP7CordovaClassLib.dll" />
+    <Content Include="www\javascripts\admin\add-child-manually.js" />
+    <Content Include="www\javascripts\admin\admin.js" />
+    <Content Include="www\javascripts\admin\confirm.js" />
+    <Content Include="www\javascripts\admin\create-event.js" />
+    <Content Include="www\javascripts\admin\edit-event.js" />
+    <Content Include="www\javascripts\admin\fadder-children.js" />
+    <Content Include="www\javascripts\admin\send-email.js" />
+    <Content Include="www\javascripts\common\dialog-plugin.js" />
+    <Content Include="www\javascripts\common\win-childbrowser.js" />
+    <Content Include="www\javascripts\fb.js" />
+    <Content Include="www\javascripts\gallery\code.photoswipe.jquery-3.0.4.min.js" />
+    <Content Include="www\javascripts\gallery\klass.min.js" />
+    <Content Include="www\javascripts\RestHandler.js" />
+    <Content Include="www\stylesheets\admin\admin.css" />
+    <Content Include="www\stylesheets\admin\editevent.css" />
     <Content Include="www\stylesheets\all-fadder-groups.css" />
     <Content Include="www\stylesheets\common\application.css" />
+    <Content Include="www\stylesheets\common\dialog-plugin.css" />
     <Content Include="www\stylesheets\common\images\ajax-loader.png" />
     <Content Include="www\stylesheets\common\images\aload.gif" />
     <Content Include="www\stylesheets\common\images\icons-18-black.png" />
@@ -95,11 +111,24 @@
     <Content Include="www\stylesheets\common\jquery.mobile.scrollview.css" />
     <Content Include="www\stylesheets\event\event-info.css" />
     <Content Include="www\stylesheets\event\program.css" />
+    <Content Include="www\views\send-email.html" />
+    <Resource Include="www\stylesheets\gallery\error.gif" />
+    <Content Include="www\stylesheets\gallery\gallery.css" />
+    <Resource Include="www\stylesheets\gallery\icons%402x.png" />
+    <Resource Include="www\stylesheets\gallery\icons.png" />
+    <Resource Include="www\stylesheets\gallery\loader.gif" />
+    <Content Include="www\stylesheets\gallery\photoswipe.css" />
+    <Content Include="www\stylesheets\gallery\styles.css" />
     <Content Include="www\stylesheets\index.css" />
     <Content Include="www\stylesheets\profile.css" />
+    <Content Include="www\stylesheets\program.css" />
     <Content Include="www\stylesheets\single-fadder-group.css" />
+    <Content Include="www\views\admin-add-children.html" />
+    <Content Include="www\views\confirm.html" />
     <Content Include="www\views\event\edit-event.html" />
     <Content Include="www\views\event\event-info.html" />
+    <Content Include="www\views\fadder-children.html" />
+    <Content Include="www\views\fadder-groups\admin-add-children.html" />
     <Content Include="www\views\fadder-groups\fadder-children\confirm.html" />
     <Content Include="www\views\fadder-groups\fadder-children\fadder-children.html" />
     <Content Include="www\views\fadder-groups\fadder-children\send-email.html" />
@@ -108,6 +137,8 @@
     <Content Include="www\index.html">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="www\views\fbgallery.html" />
+    <Content Include="www\views\index.html" />
     <Content Include="www\views\profile.html" />
     <Content Include="www\views\qr-code.html" />
     <None Include="BuildManifestProcessor.js" />

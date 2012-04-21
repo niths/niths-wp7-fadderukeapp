@@ -1,6 +1,5 @@
 
-$("#profile-page").live('pageinit', function() {
-	//alert("pageinit");
+$("#profile-page").live('pageshow', function() {
 	if (student.id < 1) {
 		history.back();
 		return false;
@@ -10,13 +9,14 @@ $("#profile-page").live('pageinit', function() {
 });
 
 
+function showProfile(){
+	$('#loadingforprofile').css('display', 'none');
+	$('#profilediv').css('visibility', 'visible');
+}
 
 	
 	function init(){
 		printUserInfo();
-//		userEmail = "";
-//		getUser();
-//		getGroup();
 	}
 	
 	$.fn.serializeObject = function(){
@@ -36,57 +36,86 @@ $("#profile-page").live('pageinit', function() {
 	};
 	
 	  $('#profilesubmit').click(function() {
-		  var response;
-		  response = $.ajax({
-		      url: address + 'students',
-		      type: 'PUT',
-		      cache: false,
-		      contentType: 'application/json',
-		      beforeSend: function(xhr) {
-		        xhr.setRequestHeader("Application-key", applicationKey);
-		        xhr.setRequestHeader("Application-token", applicationToken);
-		        xhr.setRequestHeader("Developer-key", developerKey);
-		        xhr.setRequestHeader("Developer-token", developerToken);
-		        xhr.setRequestHeader("Session-token", sessionToken);
-		      },
-		      data:  JSON.stringify($("#update-person-form").serializeObject()),
-		      success : function(data){
-		    	  if(response.status == 200){
-		    		  alert("Oppdatering vellykket");
-		    	  }else{
-		    		  alert("Beklager, oppdatering feilet. Prøv igjen");
-		    	  } 
-		      },
-		      error: function(xhr) {
-		    	  alert("Beklager, en feil oppsto: " + response.getResponseHeader('error'));
-		      }
-		    });
+		  var restClient = new RestHandler(); //REST CLIENT
+		  restClient.update('students', JSON.stringify($("#update-person-form").serializeObject()),  function(data, textStatus, jqXHR) {  
+			  $.mobile.hidePageLoadingMsg();
+				if(textStatus == "success"){
+					alert('Oppdatering vellykket');	
+				}else{
+					alert("Oppdatering feilet");
+				}
+		  	  	//history.back();
+			});
+//		  var response;
+//		  response = $.ajax({
+//		      url: address + 'students',
+//		      type: 'PUT',
+//		      cache: false,
+//		      contentType: 'application/json',
+//		      beforeSend: function(xhr) {
+//		        xhr.setRequestHeader("Application-key", applicationKey);
+//		        xhr.setRequestHeader("Application-token", applicationToken);
+//		        xhr.setRequestHeader("Developer-key", developerKey);
+//		        xhr.setRequestHeader("Developer-token", developerToken);
+//		        xhr.setRequestHeader("Session-token", sessionToken);
+//		      },
+//		      data:  JSON.stringify($("#update-person-form").serializeObject()),
+//		      success : function(data){
+//		    	  if(response.status == 200){
+//		    		  refreshStudentValues();
+//		    		  alert("Oppdatering vellykket");
+//		    	  }else{
+//		    		  alert("Beklager, oppdatering feilet. Prøv igjen");
+//		    	  } 
+//		      },
+//		      error: function(xhr) {
+//		    	  if(response.status == 401){
+//		    		  alert('Beklager, du har vært inaktiv for lenge, logg inn igjen');
+//		    		  sessionToken = '';
+//		    		  $.mobile.changePage('index.html');
+//		    	  }else{
+//		    		  alert("Beklager, en feil oppsto: " + response.getResponseHeader('error'));		    		  
+//		    	  }
+//		      }
+//		    });
 
 		    $('form').die('submit');
 		    return false;
 		  });
+	  
+	 function refreshStudentValues(){
+		 student.firstName = $('#firstName').val();
+		 student.lastName = $('#lastName').val();
+		 student.telephoneNumber = $('#telephoneNumber').val();
+		 student.description = $('#descriptionP').val();
+		 if($("input[@name=gender]:checked").attr('id') == 'male'){
+			 student.gender = 'M';
+		 }else{
+			 student.gender = 'F';
+		 }
+	 }
 
 	function printUserInfo(){
-		$('#id').val(student.id);
+		$('#idP').val(student.id);
 		$('#firstName').val(student.firstName);
 		$('#lastName').val(student.lastName);
 		$('#telephoneNumber').val(student.telephoneNumber);
-		$('#description').val(student.description);
-		
+		$('#descriptionP').val(student.description);
 		if(student.gender == 'M'){
 			$("input[value=M]").attr('checked',true).checkboxradio('refresh');
 		}else if (student.gender == 'F'){
 			$("input[value=F]").attr('checked',true).checkboxradio('refresh');			
 		}
 		
-		if(groupNumber != 0){
-			$('#faddergroup').html('<a class="blacklink" href="#single-fadder-group-page?group-id='+groupNumber+'">' + groupNumber + '</a>');
+		userEmail = hex_md5(student.email);
+		
+		$('#profileImg').attr("src", 'http://www.gravatar.com/avatar/' + userEmail + '?d=mm');
+		
+		if(student.fadderGroup != null){
+			$('#faddergroup').html('<a class="blacklink" href="#single-fadder-group-page?group-id='+student.fadderGroup.id+'">' + student.fadderGroup.groupNumber + '</a>');
 		}else{
 			$('#faddergroup').html("Ingen");
 		}
 		
-		userEmail = hex_md5(student.email);
-
-		$('#profileImg').attr("src", 'http://www.gravatar.com/avatar/' + userEmail + '?d=mm');
-
+		showProfile();
 	}

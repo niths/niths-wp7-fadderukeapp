@@ -1,16 +1,14 @@
 $("#program-page").live('pageinit', function() {
-
-	loadEvents();
-
-});
-$("#program-page").live('pageshow', function() {
+	
+	var restClient = new RestHandler(); //REST CLIENT
+	loadAllEvents();
+	
 	$('#refreshprogrambtn').click(function(data) {
 		$('#loadingmsg2').css('display', 'block');
-		$('#loadingmsg2').css('visibility', 'visible');
 		$('#programlist').css('visibility', 'hidden');
-		loadEvents();
+		loadAllEvents();
 	});
-});
+
 
 	function getDayName(day){
 		var weekday=new Array(7);
@@ -27,7 +25,7 @@ $("#program-page").live('pageshow', function() {
 	 
 	
 
-	function getDatesBetweenUrlParam(){
+	function getUrlParam(){
 		
 		var today = new Date();
 		
@@ -45,40 +43,31 @@ $("#program-page").live('pageshow', function() {
 			mm='0'+mm
 		} 
 		var today = dd+'/'+mm+'/'+yyyy + '-00:00';
-		var inFiveDays = (dd + 4) + '/'+mm+'/'+yyyy + '-23:59';
+		var inFiveDays = (dd + 5) + '/'+mm+'/'+yyyy + '-23:59';
 		var param = '?startTime='+today + '&endTime=' + inFiveDays;
 		return param;
 		//events/dates?startTime=09/04/2010-10:55&endTime=09/04/2010-10:55
 	}
 
-	function loadEvents(){
-		var response;
-		response = $.ajax({
-		      url: address + 'events/dates' + getDatesBetweenUrlParam(),
-		      type: 'get',
-		      cache: false,
-		      timeout: 3000,
-		      success: function(data) {
-//		    	  var list = '<ul id="programlist" data-role="listview" class="ui-listview" data-inset="true"></ul>';
-		    	  if(response.status == 200){
-		    		  if(data.length > 0){
-		    			  handleData(data);		    			  
-		    		  }else{
-		    			  var theHTML = '<li class="li-first" id="eventloader"><h3>Ingen events funnet for de neste fem dagene...</h3></li>';
-				    	  $('#programlist').html(theHTML);
-				    	  $('#loadingmsg2').css('display', 'none');
-				    	  $('#programlist').css('visibility', 'visible');
-		    		  }
-		    	  }
-		      },
-		      error: function(xhr) {
-		    	 // alert('err ' + response.status);
-		    	  var theHTML = '<h3>Ikke kontakt med server...</h3>';
-		    	  $('#programlist').html(theHTML);
-		    	  $('#loadingmsg2').css('display', 'none');
-		    	  $('#programlist').css('visibility', 'visible');
-		      }
-		    });
+	function loadAllEvents(){
+		restClient.find('events/dates' + getUrlParam(),  function(data, status, e) {  
+			if(status == 'success'){
+	    		  if(data.length > 0){
+	    			  handleData(data);		    			  
+	    		  }else{
+	    			  var theHTML = '<li class="li-first" id="eventloader"><h3>Ingen events funnet for de neste fem dagene...</h3></li>';
+			    	  $('#programlist').html(theHTML);
+			    	  $('#loadingmsg2').css('display', 'none');
+			    	  $('#programlist').css('visibility', 'visible');
+	    		  }
+	    	  }
+		}, function(req, status, ex) {
+				alert('err ' + response.status);
+				var theHTML = '<h3>Ikke kontakt med server...</h3>';
+				$('#programlist').html(theHTML);
+				$('#loadingmsg2').css('display', 'none');
+				$('#programlist').css('visibility', 'visible');
+		}); 
 	}
 	
 	function getHeader(date){
@@ -131,3 +120,5 @@ $("#program-page").live('pageshow', function() {
 		$('#loadingmsg2').css('display', 'none');
 	    $('#programlist').css('visibility', 'visible');
 	}
+	
+});
