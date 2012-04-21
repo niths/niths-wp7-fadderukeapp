@@ -1,9 +1,11 @@
 
 $("#profile-page").live('pageshow', function() {
 	if (student.id < 1) {
+        console.log("invalid student");
 		history.back();
 		return false;
 	} else {
+        console.log("valid student");
 		init();
 	}
 });
@@ -40,8 +42,10 @@ function showProfile(){
 		  restClient.update('students', JSON.stringify($("#update-person-form").serializeObject()),  function(data, textStatus, jqXHR) {  
 			  $.mobile.hidePageLoadingMsg();
 				if(textStatus == "success"){
+                    console.log("success-------------------------------------------------------");
 					alert('Oppdatering vellykket');	
 				}else{
+                    console.log("error---------------------------------------------------------");
 					alert("Oppdatering feilet");
 				}
 		  	  	//history.back();
@@ -96,6 +100,9 @@ function showProfile(){
 	 }
 
 	function printUserInfo(){
+        console.log("==================================");
+        console.log("ID: " + student.id);
+        console.log("==================================");
 		$('#idP').val(student.id);
 		$('#firstName').val(student.firstName);
 		$('#lastName').val(student.lastName);

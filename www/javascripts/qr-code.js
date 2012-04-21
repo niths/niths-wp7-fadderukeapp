@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   $('#capture-qr-code').click(function() {
+    console.log("fffffffffffffffffffffffffffffffff");
     navigator.camera.getPicture(uploadPhoto,
         function(message) { alert('get picture failed'); },
         { quality: 50, 
