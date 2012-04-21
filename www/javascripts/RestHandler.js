@@ -60,6 +60,7 @@ function RestHandler(){
 	}; //End remove
 	
 	this.update = function(modelUrl, dataJ, callbackSuccess) {
+        console.log(".--- in the function");
 		$.mobile.showPageLoadingMsg();
 		$.ajax({
 			type: 'PUT',

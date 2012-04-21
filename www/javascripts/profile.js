@@ -37,8 +37,10 @@ function showProfile(){
 	    return o;
 	};
 	
-	  $('#profilesubmit').click(function() {
+	  $('#update-person-form').submit(function() {
+          console.log('submitting form');
 		  var restClient = new RestHandler(); //REST CLIENT
+          
 		  restClient.update('students', JSON.stringify($("#update-person-form").serializeObject()),  function(data, textStatus, jqXHR) {  
 			  $.mobile.hidePageLoadingMsg();
 				if(textStatus == "success"){
@@ -50,38 +52,40 @@ function showProfile(){
 				}
 		  	  	//history.back();
 			});
-//		  var response;
-//		  response = $.ajax({
-//		      url: address + 'students',
-//		      type: 'PUT',
-//		      cache: false,
-//		      contentType: 'application/json',
-//		      beforeSend: function(xhr) {
-//		        xhr.setRequestHeader("Application-key", applicationKey);
-//		        xhr.setRequestHeader("Application-token", applicationToken);
-//		        xhr.setRequestHeader("Developer-key", developerKey);
-//		        xhr.setRequestHeader("Developer-token", developerToken);
-//		        xhr.setRequestHeader("Session-token", sessionToken);
-//		      },
-//		      data:  JSON.stringify($("#update-person-form").serializeObject()),
-//		      success : function(data){
-//		    	  if(response.status == 200){
-//		    		  refreshStudentValues();
-//		    		  alert("Oppdatering vellykket");
-//		    	  }else{
-//		    		  alert("Beklager, oppdatering feilet. Prøv igjen");
-//		    	  } 
-//		      },
-//		      error: function(xhr) {
-//		    	  if(response.status == 401){
-//		    		  alert('Beklager, du har vært inaktiv for lenge, logg inn igjen');
-//		    		  sessionToken = '';
-//		    		  $.mobile.changePage('index.html');
-//		    	  }else{
-//		    		  alert("Beklager, en feil oppsto: " + response.getResponseHeader('error'));		    		  
-//		    	  }
-//		      }
-//		    });
+            /*
+		  var response;
+		  response = $.ajax({
+		      url: address + 'students',
+		      type: 'PUT',
+		      cache: false,
+		      contentType: 'application/json',
+		      beforeSend: function(xhr) {
+		        xhr.setRequestHeader("Application-key", applicationKey);
+		        xhr.setRequestHeader("Application-token", applicationToken);
+		        xhr.setRequestHeader("Developer-key", developerKey);
+		        xhr.setRequestHeader("Developer-token", developerToken);
+		        xhr.setRequestHeader("Session-token", sessionToken);
+		      },
+		      data:  JSON.stringify($("#update-person-form").serializeObject()),
+		      success : function(data){
+		    	  if(response.status == 200){
+		    		  refreshStudentValues();
+		    		  alert("Oppdatering vellykket");
+		    	  }else{
+		    		  alert("Beklager, oppdatering feilet. Prøv igjen");
+		    	  } 
+		      },
+		      error: function(xhr) {
+		    	  if(response.status == 401){
+		    		  alert('Beklager, du har vært inaktiv for lenge, logg inn igjen');
+		    		  sessionToken = '';
+		    		  $.mobile.changePage('index.html');
+		    	  }else{
+		    		  alert("Beklager, en feil oppsto: " + response.getResponseHeader('error'));		    		  
+		    	  }
+		      }
+		    });
+            */
 
 		    $('form').die('submit');
 		    return false;
@@ -100,9 +104,6 @@ function showProfile(){
 	 }
 
 	function printUserInfo(){
-        console.log("==================================");
-        console.log("ID: " + student.id);
-        console.log("==================================");
 		$('#idP').val(student.id);
 		$('#firstName').val(student.firstName);
 		$('#lastName').val(student.lastName);
