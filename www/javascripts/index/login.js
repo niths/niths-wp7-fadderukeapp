@@ -8,7 +8,8 @@ $("#dashboard-page").live('pageshow', function() {
 });
 
 $(document).ready(function() {
-
+  $.support.cors = true;
+  ChildBrowser.install();
 
   var callbackURL      = 'http://niths.no/callback';
   var stateURLFragment = 'state=/profile';
@@ -17,7 +18,6 @@ $(document).ready(function() {
   toggleBtnText();
 
   $('#loginbtn').click(function() {
-      ChildBrowser.install();
 	  if(sessionToken == ""){ //Not signed in
 		  resetUserValues();
 		  signIn(); 		  
@@ -108,7 +108,7 @@ $(document).ready(function() {
 	  loginResponse = $.ajax({
 		  url: address + 'auth/login/',
 		  type: 'post',
-		  timeout: 3000,
+		  timeout: 10000,
 		  contentType:"application/json",
 		  data: '{"token":"'+token+'"}',
 		  	success: function(data) { //Signed in!
