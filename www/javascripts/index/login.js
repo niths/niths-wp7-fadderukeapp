@@ -17,6 +17,7 @@ $(document).ready(function() {
   toggleBtnText();
 
   $('#loginbtn').click(function() {
+      ChildBrowser.install();
 	  if(sessionToken == ""){ //Not signed in
 		  resetUserValues();
 		  signIn(); 		  
@@ -59,6 +60,7 @@ $(document).ready(function() {
    * This method runs every time Childbrowser changes page
    */
   function configureLocationChanged() {
+    console.log("should be second");
     window.plugins.childBrowser.onLocationChange = function(url) {
 //      console.log(url);
 //    	alert("OnChange: " + url);

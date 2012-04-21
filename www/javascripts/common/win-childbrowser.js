@@ -85,7 +85,7 @@ ChildBrowser.prototype.jsExec = function(jsString)
 
 // Note: this plugin does NOT install itself, call this method some time after deviceready to install it
 // it will be returned, and also available globally from window.plugins.childBrowser
-ChildBrowser.install = function()
+ChildBrowser.prototype.install = function()
 {
   if(!window.plugins) {
     window.plugins = {};
