@@ -1,8 +1,8 @@
 $("#dashboard-page").live('pageinit', function() {
 	//TODO: REMOVE ON iOS AND WP7 --> Android doesnt handle transitions well
-	//$.mobile.defaultPageTransition = 'none';
-	//$.mobile.defaultDialogTransition = 'none';
-    $.support.cors = true;
+	$.mobile.defaultPageTransition = 'none';
+	$.mobile.defaultDialogTransition = 'none';
+	$.support.cors = true;
 	/////////////////////////////////
 	
 	var restClient = new RestHandler(); //REST CLIENT
@@ -35,6 +35,7 @@ $("#dashboard-page").live('pageinit', function() {
 		showTweetLoading();
 		loadTweets();
 	});
+					 
 
 	function showEventsLoading(){
 		var theHTML = '<li class="li-first" id="eventloader"><h3>Laster events...</h3></li>';

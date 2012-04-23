@@ -17,7 +17,7 @@ $(document).ready(function() {
   toggleBtnText();
 
   $('#loginbtn').click(function() {
-      ChildBrowser.install();
+          ChildBrowser.install();
 	  if(sessionToken == ""){ //Not signed in
 		  resetUserValues();
 		  signIn(); 		  
@@ -29,7 +29,7 @@ $(document).ready(function() {
   });
   
 	 $('#profilebtn').click(function() {
-         ChildBrowser.install();
+	         ChildBrowser.install();
 		 if(sessionToken == ""){
 			 alert("Vennligst logg inn");
 			 resetUserValues();
@@ -70,7 +70,7 @@ $(document).ready(function() {
 
       // Triggered if the app is denied access
       if (url == callbackURL + '#error=access_denied' + stateURLFragment) {
-        alert('Kunne ikke f tilgang');
+        alert('Kunne ikke f� tilgang');
         window.plugins.childBrowser.close();
         resetUserValues();
       // Triggered if a token is received
@@ -106,18 +106,15 @@ $(document).ready(function() {
     // We get the session token in the response header
     // If any error occurred, show error.
 	  var loginResponse;
-      console.log("server url:-------------------------------------- " +  address + 'auth/login/');
 	  loginResponse = $.ajax({
 		  url: address + 'auth/login/',
 		  type: 'post',
-		  timeout: 10000,
-          cache: false,
+		  timeout: 3000,
 		  contentType:"application/json",
 		  data: '{"token":"'+token+'"}',
 		  	success: function(data) { //Signed in!
 		  		alert("Du er innlogget");
 		  		student = data;
-                 console.log("======= s 2");
 		  		sessionToken = loginResponse.getResponseHeader('session-token');
 		  		
 		  		//If student is leader for a group, show admin btn
@@ -134,7 +131,6 @@ $(document).ready(function() {
 		  	// Sign in failed! Server is down,
 		  	// or user logged in with a non NITH google account
 		  	error: function(xhr, status) { // Signed in failed
-                console.log("================================ s 1");
 		  		var resError = loginResponse.getResponseHeader('error');
 		  		//$('#error').empty();
 		  		if(resError == 'Email not valid'){

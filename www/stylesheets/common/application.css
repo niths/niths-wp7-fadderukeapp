@@ -7,19 +7,19 @@
 .ui-btn-active { color: none !important; background: none !important; background-color: #00ADEF !important;  }
 
 @font-face {
-	font-family: "header_font";
-	src: url(fonts/US101.TTF);
+	font-family: header_font;
+	src: url('fonts/US101.TTF');
 /* 	src: url('fonts/COUTURE-Bold.ttf'); */
 	
 }
 
 .customfont{
-	font-family: "header_font";
+	font-family: header_font;
 }
 
 .withborder{
 	margin-top: 2px;
-	font-family: "header_font";
+	font-family: header_font;
 	border-top: dotted 2px black;
 	border-bottom: dotted 2px black;
 	padding-top:16px;

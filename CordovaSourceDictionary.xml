@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- This file is auto-generated, do not edit! -jm -->
 <CordovaSourceDictionary>
+    <FilePath Value="www\cordova-1.4.1.js"/>
     <FilePath Value="www\index.html"/>
     <FilePath Value="www\index2.html"/>
     <FilePath Value="www\master.css"/>
@@ -36,6 +37,7 @@
     <FilePath Value="www\javascripts\common\jquery.mobile.scrollview.js"/>
     <FilePath Value="www\javascripts\common\jsoauth.js"/>
     <FilePath Value="www\javascripts\common\md5.js"/>
+    <FilePath Value="www\javascripts\common\mobiscroll-1.6.min.js"/>
     <FilePath Value="www\javascripts\common\oauth.js"/>
     <FilePath Value="www\javascripts\common\phonegap-1.4.1.js"/>
     <FilePath Value="www\javascripts\common\scrollview.js"/>
@@ -69,6 +71,7 @@
     <FilePath Value="www\stylesheets\common\jq-m-uncom-custom.css"/>
     <FilePath Value="www\stylesheets\common\jquery-mobile.css"/>
     <FilePath Value="www\stylesheets\common\jquery.mobile.scrollview.css"/>
+    <FilePath Value="www\stylesheets\common\mobiscroll-1.6.min.css"/>
     <FilePath Value="www\stylesheets\common\fonts\COUTURE-Bold.ttf"/>
     <FilePath Value="www\stylesheets\common\fonts\US101.TTF"/>
     <FilePath Value="www\stylesheets\common\images\ajax-loader.png"/>

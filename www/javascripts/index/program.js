@@ -11,13 +11,7 @@ $("#program-page").live('pageinit', function() {
 					$('#programlist').css('visibility', 'hidden');
 					loadAllEvents(true);
 			  }else{
-
-				  navigator.notification.alert(
-                    'Du har ingen gruppe',  // message
-                    null,         // callback
-                    'Game Over',            // title
-                    'Done'                  // buttonName
-                  );
+				  alert('Du har ingen gruppe');
 				  $("input[type='radio']:first").attr("checked",true).checkboxradio("refresh");
 			  }
 			  //IF I HAVE A GROUP:
