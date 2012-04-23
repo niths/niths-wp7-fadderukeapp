@@ -46,10 +46,18 @@ $("#admin-create-event-page").live('pageinit', function() {
 		restClient.create('events/', getDataFromCreateForm(), function(data, textStatus, jqXHR) {
 			$.mobile.hidePageLoadingMsg();
 			if(jqXHR.status == 201){
+                console.log("create success");
 				alert('Event opprettet');				
 				history.back();
 			}else{
-				alert('Noe gikk galt');
+                console.log("create error");
+                navigator.notification.alert(
+                    'Invalid date format, should be ',  // message
+                    null,         // callback
+                    'Game Over',            // title
+                    'Done'                  // buttonName
+                     );
+		
 			}
 		}); 
 	

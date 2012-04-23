@@ -125,6 +125,7 @@
     <Resource Include="www\www\images\icons-36-white-pack.png" />
     <Resource Include="www\www\images\mm.jpg" />
     <Resource Include="www\www\images\nith.jpg" />
+    <Content Include="www\wp7\create-event.js" />
     <Content Include="www\www\index.html" />
     <Content Include="www\www\javascripts\admin\add-child-manually.js" />
     <Content Include="www\www\javascripts\admin\admin.js" />

@@ -127,6 +127,12 @@ function RestHandler(){
 			sessionToken = '';
 			$.mobile.changePage('#dashboard-page');
 		}else{
+              navigator.notification.alert(
+                jqXHR.getResponseHeader('error'),  // message
+                null,         // callback
+                'Error',            // title
+                'OK'                  // buttonName
+            );
 			alert("Beklager, en feil oppsto: " + jqXHR.getResponseHeader('error'));		    		  
 		}
 	}

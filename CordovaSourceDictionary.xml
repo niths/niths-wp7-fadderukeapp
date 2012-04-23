@@ -108,6 +108,7 @@
     <FilePath Value="www\views\fadder-groups\fadder-children\send-email.html"/>
     <FilePath Value="www\wp7\childbrowser.js"/>
     <FilePath Value="www\wp7\cordova-1.4.1.js"/>
+    <FilePath Value="www\wp7\create-event.js"/>
     <FilePath Value="www\www\index.html"/>
     <FilePath Value="www\www\childbrowser\icon_arrow_left.png"/>
     <FilePath Value="www\www\childbrowser\icon_arrow_right.png"/>
