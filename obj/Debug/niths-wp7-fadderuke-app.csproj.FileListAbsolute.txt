@@ -12,3 +12,4 @@ c:\users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderu
 c:\users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\obj\Debug\niths-wp7-fadderuke-app.dll
 c:\users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\obj\Debug\niths-wp7-fadderuke-app.pdb
 c:\users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\obj\Debug\XapCacheFile.xml
+C:\Users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\Bin\Debug\www\stylesheets\common\fonts\US101.TTF

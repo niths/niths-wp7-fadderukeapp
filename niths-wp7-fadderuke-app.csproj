@@ -264,7 +264,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="www\stylesheets\common\fonts\COUTURE-Bold.ttf" />
-    <None Include="www\stylesheets\common\fonts\US101.TTF" />
+    <Content Include="www\stylesheets\common\fonts\US101.TTF">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationIcon.png">

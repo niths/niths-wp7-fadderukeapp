@@ -2,12 +2,6 @@ $("#program-page").live('pageinit', function() {
 	var restClient = new RestHandler(); //REST CLIENT
 	loadAllEvents();
 	
-//	$('#refreshprogrambtn').click(function(data) {
-//		$('#loadingmsg2').css('display', 'block');
-//		$('#programlist').css('visibility', 'hidden');
-//		loadAllEvents(false);
-//	});
-	
 	//TODO: FIX SERVICESIDE
 	$("#privacyselectdiv input[type='radio']").bind( "change", function(event, ui) {
 		  var value = $("#privacyselectdiv input[type='radio']:checked").val();
@@ -17,7 +11,13 @@ $("#program-page").live('pageinit', function() {
 					$('#programlist').css('visibility', 'hidden');
 					loadAllEvents(true);
 			  }else{
-				  alert('Du har ingen gruppe');
+
+				  navigator.notification.alert(
+                    'Du har ingen gruppe',  // message
+                    null,         // callback
+                    'Game Over',            // title
+                    'Done'                  // buttonName
+                  );
 				  $("input[type='radio']:first").attr("checked",true).checkboxradio("refresh");
 			  }
 			  //IF I HAVE A GROUP:
