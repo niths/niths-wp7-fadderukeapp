@@ -1,7 +1,8 @@
 $("#dashboard-page").live('pageinit', function() {
 	//TODO: REMOVE ON iOS AND WP7 --> Android doesnt handle transitions well
-	$.mobile.defaultPageTransition = 'none';
-	$.mobile.defaultDialogTransition = 'none';
+	//$.mobile.defaultPageTransition = 'none';
+	//$.mobile.defaultDialogTransition = 'none';
+    $.support.cors = true;
 	/////////////////////////////////
 	
 	var restClient = new RestHandler(); //REST CLIENT
@@ -34,7 +35,6 @@ $("#dashboard-page").live('pageinit', function() {
 		showTweetLoading();
 		loadTweets();
 	});
-					 
 
 	function showEventsLoading(){
 		var theHTML = '<li class="li-first" id="eventloader"><h3>Laster events...</h3></li>';
@@ -85,8 +85,8 @@ $("#dashboard-page").live('pageinit', function() {
 		} 
 		var today = dd+'/'+mm+'/'+yyyy + '-00:00';
 		var inFiveDays = (dd + 4) + '/'+mm+'/'+yyyy + '-23:59';
-		var param = '?startTime='+today + '&endTime=' + inFiveDays;
-		
+//		var param = '?startTime='+today + '&endTime=' + inFiveDays;
+		var param = '?tag=fadderuka12,public&startTime='+today + '&endTime=' + inFiveDays;
 		return param;
 	}
 	
@@ -95,7 +95,7 @@ $("#dashboard-page").live('pageinit', function() {
 	 */
 	function loadEvents(){
 		
-		restClient.find('events/dates' + getDatesBetweenUrlParam(),  function(data) {  
+		restClient.find('events/tags-and-dates' + getDatesBetweenUrlParam(),  function(data) {  
 			var theHTML = '';
 			var num = 0;
 			

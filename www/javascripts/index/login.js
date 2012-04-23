@@ -8,8 +8,7 @@ $("#dashboard-page").live('pageshow', function() {
 });
 
 $(document).ready(function() {
-  $.support.cors = true;
-  ChildBrowser.install();
+
 
   var callbackURL      = 'http://niths.no/callback';
   var stateURLFragment = 'state=/profile';
@@ -18,6 +17,7 @@ $(document).ready(function() {
   toggleBtnText();
 
   $('#loginbtn').click(function() {
+      ChildBrowser.install();
 	  if(sessionToken == ""){ //Not signed in
 		  resetUserValues();
 		  signIn(); 		  
@@ -29,6 +29,7 @@ $(document).ready(function() {
   });
   
 	 $('#profilebtn').click(function() {
+         ChildBrowser.install();
 		 if(sessionToken == ""){
 			 alert("Vennligst logg inn");
 			 resetUserValues();
@@ -37,6 +38,7 @@ $(document).ready(function() {
 		 else if(sessionToken  != "-1"){ //Sign is succeeded, but not NITH mail: = -1;
 			 //alert("LOGGED IN");
 			 $.mobile.changePage('#profile-page');
+//			 $.mobile.changePage('views/profile.html');
 		 }
 	 });
 	 
@@ -53,14 +55,13 @@ $(document).ready(function() {
       + '&redirect_uri=' + encodeURIComponent(callbackURL)
       + '&response_type=token'
       + '&client_id=1064171706637-f9efklqg3tbrmu7fctvk8khvc0dqmh5i.apps.googleusercontent.com',
-      { showLocationBar: false});
+      { });//showLocationBar: false}); //When no contact with google, needs to be able to exit browser
   };
 
   /**
    * This method runs every time Childbrowser changes page
    */
   function configureLocationChanged() {
-    console.log("should be second");
     window.plugins.childBrowser.onLocationChange = function(url) {
 //      console.log(url);
 //    	alert("OnChange: " + url);
@@ -69,7 +70,7 @@ $(document).ready(function() {
 
       // Triggered if the app is denied access
       if (url == callbackURL + '#error=access_denied' + stateURLFragment) {
-        alert('Kunne ikke f� tilgang');
+        alert('Kunne ikke f tilgang');
         window.plugins.childBrowser.close();
         resetUserValues();
       // Triggered if a token is received
@@ -105,15 +106,18 @@ $(document).ready(function() {
     // We get the session token in the response header
     // If any error occurred, show error.
 	  var loginResponse;
+      console.log("server url:-------------------------------------- " +  address + 'auth/login/');
 	  loginResponse = $.ajax({
 		  url: address + 'auth/login/',
 		  type: 'post',
 		  timeout: 10000,
+          cache: false,
 		  contentType:"application/json",
 		  data: '{"token":"'+token+'"}',
 		  	success: function(data) { //Signed in!
 		  		alert("Du er innlogget");
 		  		student = data;
+                 console.log("======= s 2");
 		  		sessionToken = loginResponse.getResponseHeader('session-token');
 		  		
 		  		//If student is leader for a group, show admin btn
@@ -130,6 +134,7 @@ $(document).ready(function() {
 		  	// Sign in failed! Server is down,
 		  	// or user logged in with a non NITH google account
 		  	error: function(xhr, status) { // Signed in failed
+                console.log("================================ s 1");
 		  		var resError = loginResponse.getResponseHeader('error');
 		  		//$('#error').empty();
 		  		if(resError == 'Email not valid'){
