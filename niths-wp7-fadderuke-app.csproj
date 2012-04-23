@@ -100,7 +100,9 @@
     <Content Include="www\stylesheets\all-fadder-groups.css" />
     <Content Include="www\stylesheets\common\application.css" />
     <Content Include="www\stylesheets\common\dialog-plugin.css" />
-    <Content Include="www\stylesheets\common\images\ajax-loader.png" />
+    <Content Include="www\stylesheets\common\images\ajax-loader.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="www\stylesheets\common\images\aload.gif" />
     <Content Include="www\stylesheets\common\images\icons-18-black.png" />
     <Content Include="www\stylesheets\common\images\icons-18-white.png" />
@@ -186,11 +188,19 @@
     <Content Include="www\www\stylesheets\single-fadder-group.css" />
     <None Include="www\www\stylesheets\common\fonts\COUTURE-Bold.ttf" />
     <None Include="www\www\stylesheets\common\fonts\US101.TTF" />
-    <Resource Include="www\stylesheets\gallery\error.gif" />
+    <Content Include="www\stylesheets\gallery\error.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="www\stylesheets\gallery\gallery.css" />
-    <Resource Include="www\stylesheets\gallery\icons%402x.png" />
-    <Resource Include="www\stylesheets\gallery\icons.png" />
-    <Resource Include="www\stylesheets\gallery\loader.gif" />
+    <Content Include="www\stylesheets\gallery\icons%402x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="www\stylesheets\gallery\icons.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="www\stylesheets\gallery\loader.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="www\stylesheets\gallery\photoswipe.css" />
     <Content Include="www\stylesheets\gallery\styles.css" />
     <Content Include="www\stylesheets\index.css" />

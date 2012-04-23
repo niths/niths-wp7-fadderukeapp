@@ -13,3 +13,8 @@ c:\users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderu
 c:\users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\obj\Debug\niths-wp7-fadderuke-app.pdb
 c:\users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\obj\Debug\XapCacheFile.xml
 C:\Users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\Bin\Debug\www\stylesheets\common\fonts\US101.TTF
+C:\Users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\Bin\Debug\www\stylesheets\common\images\ajax-loader.png
+C:\Users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\Bin\Debug\www\stylesheets\gallery\error.gif
+C:\Users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\Bin\Debug\www\stylesheets\gallery\icons@2x.png
+C:\Users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\Bin\Debug\www\stylesheets\gallery\icons.png
+C:\Users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\Bin\Debug\www\stylesheets\gallery\loader.gif
