@@ -126,7 +126,6 @@ function RestHandler() {
   }; //End update
 
   function setReqHeaders(xhr) {
-    showMsg('session token: ' + sessionStorage.getItem('session_token'), null);
     xhr.setRequestHeader(
         "Application-key",
         sessionStorage.getItem('app_key'));
