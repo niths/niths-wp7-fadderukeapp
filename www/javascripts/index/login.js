@@ -8,6 +8,7 @@ $("#dashboard-page").live('pageshow', function() {
 });
 
 $(document).ready(function() {
+  ChildBrowser.install();
   var restClient       = new RestHandler();
   var callbackURL      = 'http://niths.no/callback';
   var stateURLFragment = 'state=/profile';
@@ -15,7 +16,7 @@ $(document).ready(function() {
 
   $('#loginbtn').click(function() {
     
-    if(sessionStorage.getItem('session_token') == '') { //Not signed in
+    if(!checkValue(sessionStorage.getItem('session_token'))) { //Not signed in
       resetUserValues();
       signIn();       
     } else { //Already signed in
@@ -34,8 +35,10 @@ $(document).ready(function() {
    });
 
    function checkLogin(page) {
-     ChildBrowser.install();
-     if(sessionStorage.getItem('session_token') == '') {
+     sessionToken = sessionStorage.getItem('session_token');
+
+     if(!checkValue(sessionToken)) {
+       console.log('------------foo');
        showErr('Vennligst logg inn', function() {
          resetUserValues();
          signIn();
@@ -43,9 +46,9 @@ $(document).ready(function() {
      }
 
      // Sign is succeeded, but not NITH mail: = -1
-     else if(sessionStorage.getItem('session_token')  != "-1"){
+     else if(sessionStorage.getItem('session_token')  != "-1") {
        $.mobile.changePage(page);
-     }
+     } 
    }
 
   /**
@@ -92,7 +95,7 @@ $(document).ready(function() {
   };
 
   function toggleBtnText(){
-    if(sessionStorage.getItem('session_token') == ""){
+    if(!checkValue(sessionStorage.getItem('session_token'))){
       $("#loginbtn .ui-btn-text").text("Logg inn");
     }else{
       $("#loginbtn .ui-btn-text").text("Logg ut");

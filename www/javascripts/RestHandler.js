@@ -94,6 +94,7 @@ function RestHandler() {
   }; //End update
   this.updateWithCallbacks = function(modelUrl, json, callbackSuccess, callbackError) {
     $.mobile.showPageLoadingMsg();
+    showMsg('st: ' + json, null);
     $.ajax({
       type: 'POST',
       url: this.baseUrl + modelUrl,
@@ -125,6 +126,7 @@ function RestHandler() {
   }; //End update
 
   function setReqHeaders(xhr) {
+    showMsg('session token: ' + sessionStorage.getItem('session_token'), null);
     xhr.setRequestHeader(
         "Application-key",
         sessionStorage.getItem('app_key'));
