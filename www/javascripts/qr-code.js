@@ -1,37 +1,59 @@
 $('#scan-qr-page').live('pageinit', function() {
-	
-
-
-//$(document).ready(function() {
+  
+  var restClient = new RestHandler();
 
   $('#capture-qr-code').click(function() {
     navigator.camera.getPicture(uploadPhoto,
-        function(message) { alert('get picture failed'); },
-        { quality: 50, 
-        destinationType: navigator.camera.DestinationType.FILE_URI }
-        );
+        function(message) { showErr('get picture failed', null); },
+
+        // Camera options
+        { quality:         50, 
+          destinationType: navigator.camera.DestinationType.FILE_URI }
+    );
 
 
-function uploadPhoto(imageURI) {
-var options = new FileUploadOptions();
-options.fileKey="file";
-options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-options.mimeType="image/jpeg";
+    function uploadPhoto(imageURI) {
+      $.mobile.showPageLoadingMsg();
+      var options = new FileUploadOptions();
+      options.fileKey = "file";
+      options.fileName = imageURI.substr(imageURI.lastIndexOf('/')+1);
+      options.mimeType = "image/jpeg";
 
-var ft = new FileTransfer();
-ft.upload(imageURI, address + 'fadder/scan-qr-code', win, fail, options);
-}
-
-function win(r) {
-console.log("Code = " + r.responseCode);
-console.log("Response = " + r.response);
-console.log("Sent = " + r.bytesSent);
-}
-
-function fail(error) {
-alert("An error has occurred: Code = " = error.code);
-}
+      var ft = new FileTransfer();
+      ft.upload(
+          imageURI, restClient.baseUrl + 'fadder/scan-qr-code/' + student.id,
+          function(res) {
+            $.mobile.hidePageLoadingMsg();
+            if(res.responseCode == 200) {
+              getGroupStudentWasAddedTo();
+            } else {
+              showErr('Beklager, noe er galt med QR koden', null);
+            }
+          },
+          function (error) {
+            $.mobile.hidePageLoadingMsg();
+            showErr('Greide ikke lese koden', null);
+          },
+          options);  
+    }
+    
+    function getGroupStudentWasAddedTo() {
+      restClient.findRestricted(
+        'students/' + student.id,
+        function(data, textStatus, jqXHR) {  
+          $.mobile.hidePageLoadingMsg();
+          if(jqXHR.status == '200'){
+            student = data;
+            showErr(
+                'Du er i gruppe: ' + student.fadderGroup.groupNumber, null);  
+            history.back();
+          } else {  
+            showErr('Beklager, en feil skjedde', null);
+          }
+        },function(jqXHR, textStatus, errorThrown){
+          showErr('Beklager, en feil oppsto: ' + textStatus + errorThrown, null);
+        }
+      );
+    }
   });
-//});
-  
 });

@@ -16,6 +16,7 @@
     <FilePath Value="www\images\mm.jpg"/>
     <FilePath Value="www\images\nith.jpg"/>
     <FilePath Value="www\javascripts\fb.js"/>
+    <FilePath Value="www\javascripts\private-storage.js"/>
     <FilePath Value="www\javascripts\profile.js"/>
     <FilePath Value="www\javascripts\qr-code.js"/>
     <FilePath Value="www\javascripts\RestHandler.js"/>
@@ -30,6 +31,7 @@
     <FilePath Value="www\javascripts\common\childbrowser.js"/>
     <FilePath Value="www\javascripts\common\cordova.js"/>
     <FilePath Value="www\javascripts\common\dialog-plugin.js"/>
+    <FilePath Value="www\javascripts\common\dialog.js"/>
     <FilePath Value="www\javascripts\common\google-client.js"/>
     <FilePath Value="www\javascripts\common\jquery-mobile.js"/>
     <FilePath Value="www\javascripts\common\jquery.easing.1.3.js"/>
@@ -45,6 +47,17 @@
     <FilePath Value="www\javascripts\common\win-childbrowser.js"/>
     <FilePath Value="www\javascripts\event\edit-event.js"/>
     <FilePath Value="www\javascripts\event\event-info.js"/>
+    <FilePath Value="www\javascripts\external\childbrowser.js"/>
+    <FilePath Value="www\javascripts\external\dialog-plugin.js"/>
+    <FilePath Value="www\javascripts\external\jsoauth.js"/>
+    <FilePath Value="www\javascripts\external\md5.js"/>
+    <FilePath Value="www\javascripts\external\mobiscroll-1.6.min.js"/>
+    <FilePath Value="www\javascripts\external\phonegap-1.4.1.js"/>
+    <FilePath Value="www\javascripts\external\scrollview.js"/>
+    <FilePath Value="www\javascripts\external\jquery\jquery-mobile.js"/>
+    <FilePath Value="www\javascripts\external\jquery\jquery.easing.1.3.js"/>
+    <FilePath Value="www\javascripts\external\jquery\jquery.js"/>
+    <FilePath Value="www\javascripts\external\jquery\jquery.mobile.scrollview.js"/>
     <FilePath Value="www\javascripts\fadder-groups\fadder-group-info.js"/>
     <FilePath Value="www\javascripts\fadder-groups\fadder-groups.js"/>
     <FilePath Value="www\javascripts\fadder-groups\fadder-children\confirm.js"/>

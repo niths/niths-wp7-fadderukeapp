@@ -18,3 +18,4 @@ C:\Users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderu
 C:\Users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\Bin\Debug\www\stylesheets\gallery\icons@2x.png
 C:\Users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\Bin\Debug\www\stylesheets\gallery\icons.png
 C:\Users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\Bin\Debug\www\stylesheets\gallery\loader.gif
+C:\Users\oyvind.odegard\documents\visual studio 2010\niths-win\niths-wp7-fadderuke-app\niths-wp7-fadderuke-app\Bin\Debug\FlurryWP7SDK.dll
