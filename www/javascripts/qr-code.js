@@ -3,6 +3,9 @@ $('#scan-qr-page').live('pageinit', function() {
   var restClient = new RestHandler();
 
   $('#capture-qr-code').click(function() {
+    navigator.camera.getPicture(function(data){},function(e){showErr(e, null)},{sourceType:1,quality:60});
+
+    /*
     navigator.camera.getPicture(uploadPhoto,
         function(message) { showErr('get picture failed', null); },
 
@@ -10,6 +13,7 @@ $('#scan-qr-page').live('pageinit', function() {
         { quality:         50, 
           destinationType: navigator.camera.DestinationType.FILE_URI }
     );
+    */
 
 
     function uploadPhoto(imageURI) {

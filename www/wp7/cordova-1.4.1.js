@@ -877,6 +877,7 @@ Camera.prototype.PictureSourceType = Camera.PictureSourceType;
  * @param {Object} options
  */
 Camera.prototype.getPicture = function(successCallback, errorCallback, options) {
+    console.log("-------------------- camera 1");
     console.log("Camera.prototype.getPicture");
     // successCallback required
     if (typeof successCallback !== "function") {
@@ -936,7 +937,9 @@ Camera.prototype.getPicture = function(successCallback, errorCallback, options) 
 //        }
 //    }
 
-    Cordova.exec(successCallback, errorCallback, "Camera", "getPicture", this.options);
+console.log("-------------------- camera 2");
+    //Cordova.exec(successCallback, errorCallback, "Camera", "getPicture", this.options);
+    Cordova.exec(successCallback, errorCallback, "Camera", "takePicture", this.options);
 };
 
 Cordova.onCordovaInit.subscribeOnce(function() {
