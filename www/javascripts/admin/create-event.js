@@ -51,6 +51,7 @@ $("#admin-create-event-page").live('pageinit', function() {
         $('#place2').val() + '&sensor=true',
       function(data) {
         locations = data.results;
+        console.log("----------------- " + locations);
         $.each(locations, function(key, location) {
 
           // Extract the country from the formatted address
@@ -121,11 +122,13 @@ function getDataFromCreateForm() {
   }
 
   var currentLocation = locations[currentLocationIndex];
-  json += ', "location": {'+
-    '"place": "'    + currentLocation.formatted_address + '",' +
-    '"latitude": '  + currentLocation.geometry.location.lat + ',' +
-    '"longitude": ' + currentLocation.geometry.location.lng +
-    '}';
+  if (typeof (currentLocation) != 'undefined') {
+    json += ', "location": {'+
+      '"place": "'    + currentLocation.formatted_address + '",' +
+      '"latitude": '  + currentLocation.geometry.location.lat + ',' +
+      '"longitude": ' + currentLocation.geometry.location.lng +
+      '}';
+    }
 
   json += '}';
   return json;
