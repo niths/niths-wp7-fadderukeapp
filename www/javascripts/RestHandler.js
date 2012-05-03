@@ -94,7 +94,6 @@ function RestHandler() {
   }; //End update
   this.updateWithCallbacks = function(modelUrl, json, callbackSuccess, callbackError) {
     $.mobile.showPageLoadingMsg();
-    showMsg('st: ' + json, null);
     $.ajax({
       type: 'POST',
       url: this.baseUrl + modelUrl,
