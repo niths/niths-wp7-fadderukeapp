@@ -40,6 +40,37 @@ ChildBrowser._onJSCallback = function(js,loc)
 
 /* The interface that you will use to access functionality */
 
+
+ChildBrowser.prototype.showCamera = function(loc,geolocationEnabled)
+{
+  var success = function(msg)
+  {
+     //console.log("ChildBrowser.showWebPage success :: " + msg);
+
+        var event = JSON.parse(msg);
+
+        if (event.type == "locationChanged") {
+            ChildBrowser._onLocationChange(event.location);
+        }
+  };
+
+  var error = function(e)
+  {
+     //console.log("ChildBrowser.showWebPage error :: " + e);
+  };
+
+  var options = 
+  {
+     url:loc,
+     geolocationEnabled:(geolocationEnabled == true)
+
+  };
+
+  Cordova.exec(success,error,"ChildBrowserCommand","showCamera", options);
+  //setTimeout(this.close,5000);
+};
+
+
 // Show a webpage, will result in a callback to onLocationChange
 ChildBrowser.prototype.showWebPage = function(loc,geolocationEnabled)
 {

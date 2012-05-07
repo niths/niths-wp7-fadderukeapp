@@ -3,27 +3,28 @@ $('#scan-qr-page').live('pageinit', function() {
   var restClient = new RestHandler();
 
   $('#capture-qr-code').click(function() {
-    navigator.camera.getPicture(function(data){},function(e){showErr(e, null)},{sourceType:1,quality:60});
-
-    /*
     navigator.camera.getPicture(uploadPhoto,
         function(message) { showErr('get picture failed', null); },
 
         // Camera options
-        { quality:         50, 
-          destinationType: navigator.camera.DestinationType.FILE_URI }
+        { quality:         50,
+        destinationType: navigator.camera.DestinationType.FILE_URI }
     );
-    */
 
 
     function uploadPhoto(imageURI) {
       $.mobile.showPageLoadingMsg();
+
       var options = new FileUploadOptions();
       options.fileKey = "file";
+      
       options.fileName = imageURI.substr(imageURI.lastIndexOf('/')+1);
+      showErr('fileName: ' + options.fileName, null);
       options.mimeType = "image/jpeg";
 
       var ft = new FileTransfer();
+
+     
       ft.upload(
           imageURI, restClient.baseUrl + 'fadder/scan-qr-code/' + student.id,
           function(res) {

@@ -939,7 +939,7 @@ Camera.prototype.getPicture = function(successCallback, errorCallback, options) 
 
 console.log("-------------------- camera 2");
     //Cordova.exec(successCallback, errorCallback, "Camera", "getPicture", this.options);
-    Cordova.exec(successCallback, errorCallback, "Camera", "takePicture", this.options);
+    Cordova.exec(successCallback, errorCallback, "Camera", "getPicture", this.options);
 };
 
 Cordova.onCordovaInit.subscribeOnce(function() {

@@ -15,6 +15,7 @@ using WP7CordovaClassLib.Cordova.Commands;
 using WP7CordovaClassLib.Cordova.UI;
 using WP7CordovaClassLib.Cordova.JSON;
 using Microsoft.Phone.Shell;
+using Microsoft.Phone.Tasks;
 
 namespace WP7CordovaClassLib.Cordova.Commands
 {
