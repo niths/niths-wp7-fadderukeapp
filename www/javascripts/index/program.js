@@ -10,7 +10,9 @@ $("#program-page").live('pageinit', function() {
           if(student.fadderGroup != null) {
             $('#loadingmsg2').css('display', 'block');
             $('#programlist').css('visibility', 'hidden');
-            loadAllEvents(true);
+            if (loadAllEvents(true) == null) {
+              return false;
+            }
           } else {
             showErr('Du har ingen gruppe', null);
             $("input[type='radio']:first").attr(
@@ -26,6 +28,8 @@ $("#program-page").live('pageinit', function() {
         $('#programlist').css('visibility', 'hidden');
         loadAllEvents(false);
       }
+
+
   });
 
 
@@ -72,20 +76,23 @@ $("#program-page").live('pageinit', function() {
     return param;
   }
 
-  function loadAllEvents(isPrivate){
+  function loadAllEvents(isPrivate) {
+    var hasEvents = true;
+
     restClient.find('events/tags-and-dates' + getUrlParam(isPrivate),
       function(data, status, e) {  
         if (status == 'success') {
           if(data.length > 0){
             handleData(data);
           } else {
-            var theHTML =
-              '<li class="li-first" id="eventloader"><h3>' +
-                'Ingen events funnet for de neste fem dagene...' +
-              '</h3></li>';
-            $('#programlist').html(theHTML);
+            /*
+            $('#programlist').html('<h2>Ingen events funnet for de neste fem dagene...</h2>');
             $('#loadingmsg2').css('display', 'none');
             $('#programlist').css('visibility', 'visible');
+            
+            */
+            $('#loadingmsg2').css('display', 'none');
+            showErr('Ingen private events', null);
           }
         }
       },
