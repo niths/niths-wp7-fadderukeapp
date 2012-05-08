@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
-  <App xmlns="" ProductID="{1f94adee-d210-4f68-bf22-f0c4f38adc4c}" Title="niths_wp7_fadderuke_app" 
+  <App xmlns="" ProductID="{1f94adee-d210-4f68-bf22-f0c4f38adc4c}" Title="Fadderuka NITHs" 
        RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  
-       Author="niths_wp7_fadderuke_app author" 
-       Description="Cordova for Windows Phone 7" 
-       Publisher="niths_wp7_fadderuke_app">
+       Author="niths" 
+       Description="NITHs Fadderuke app" 
+       Publisher="niths">
     
-    <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
+    <IconPath IsRelative="true" IsResource="false">sample_icon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_IDENTITY_DEVICE" />
       <Capability Name="ID_CAP_IDENTITY_USER" />
