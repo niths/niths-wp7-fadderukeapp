@@ -80,10 +80,13 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="config.xml" />
+    <Resource Include="splash.jpg" />
     <Content Include="CordovaSourceDictionary.xml" />
     <Content Include="External\FlurryWP7SDK.dll" />
     <Content Include="GapLib\WP7CordovaClassLib.dll" />
     <Content Include="sample_icon.png" />
+    <Content Include="SplashScreenImage.jpg" />
     <Content Include="www\javascripts\common\dialog.js" />
     <Content Include="www\javascripts\external\childbrowser.js" />
     <Content Include="www\javascripts\external\dialog-plugin.js" />
@@ -302,7 +305,6 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
