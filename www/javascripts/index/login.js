@@ -1,5 +1,6 @@
 $("#dashboard-page").live('pageshow', function() {
-   if(sessionStorage.getItem('session_token') == null) { 
+     if (!checkValue(sessionStorage.getItem('session_token'))) {
+   //if(sessionStorage.getItem('session_token') == null) { 
       $("#loginbtn .ui-btn-text").text("Logg inn");
       $('#adminsectionbtn').css('display', 'none');
     } else {

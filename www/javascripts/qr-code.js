@@ -2,6 +2,17 @@ $('#scan-qr-page').live('pageinit', function() {
   
   var restClient = new RestHandler();
 
+  $('#qr-code-form').submit(function() {
+    restClient.updateURL(
+      'fadder/' + $('#group-id').val() + '/child/' + student.id,
+      function(data) {
+        getGroupStudentWasAddedTo();
+        $.mobile.hidePageLoadingMsg();
+      });
+
+      return false;
+  });
+
   $('#capture-qr-code').click(function() {
     navigator.camera.getPicture(uploadPhoto,
         function(message) { showErr('get picture failed', null); },
@@ -42,15 +53,18 @@ $('#scan-qr-page').live('pageinit', function() {
           options);  
     }
     
-    function getGroupStudentWasAddedTo() {
+    
+  });
+
+  function getGroupStudentWasAddedTo() {
       restClient.findRestricted(
         'students/' + student.id,
         function(data, textStatus, jqXHR) {  
           $.mobile.hidePageLoadingMsg();
-          if(jqXHR.status == '200'){
+          if (jqXHR.status == '200') {
             student = data;
             showErr(
-                'Du er i gruppe: ' + student.fadderGroup.groupNumber, null);  
+                'Du er i gruppe: ' + student.fadderGroup.groupNumber, null);
             history.back();
           } else {  
             showErr('Beklager, en feil skjedde', null);
@@ -60,5 +74,4 @@ $('#scan-qr-page').live('pageinit', function() {
         }
       );
     }
-  });
 });
