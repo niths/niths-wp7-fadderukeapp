@@ -81,7 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.xml" />
-    <Resource Include="splash.jpg" />
+    <Content Include="splash.jpg" />
     <Content Include="CordovaSourceDictionary.xml" />
     <Content Include="External\FlurryWP7SDK.dll" />
     <Content Include="GapLib\WP7CordovaClassLib.dll" />

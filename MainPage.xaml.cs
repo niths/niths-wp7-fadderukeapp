@@ -29,5 +29,14 @@ namespace niths_wp7_fadderuke_app
         {
 
         }
+
+	private void fadeOut_Completed(object sender, EventArgs e) {
+        //splashImage.Visibility = Visibility.Collapsed;
+	}
+
+    private void PGView_Loaded(object sender, RoutedEventArgs e)
+    {
+        splashImage.Visibility = Visibility.Collapsed;
+    }
     }
 }
