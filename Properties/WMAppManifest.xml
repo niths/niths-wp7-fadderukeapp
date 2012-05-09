@@ -9,8 +9,8 @@
     <IconPath IsRelative="true" IsResource="false">sample_icon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_IDENTITY_DEVICE" />
-      <Capability Name="ID_CAP_IDENTITY_USER" />
-      <Capability Name="ID_CAP_LOCATION" />
+      <!--<Capability Name="ID_CAP_IDENTITY_USER" />-->
+      <!--<Capability Name="ID_CAP_LOCATION" />-->
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
       <Capability Name="ID_CAP_CAMERA"/>

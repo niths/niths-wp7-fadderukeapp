@@ -17,9 +17,9 @@
 function RestHandler() {
   $.support.cors = true;
 //  this.baseUrl = 'http://192.168.0.105:8080/niths/'; // Ben
-  this.baseUrl = 'http://10.110.58.108:8080/niths/';
+  //this.baseUrl = 'http://10.110.58.108:8080/niths/';
  
-  //this.baseUrl = 'http://ec2-46-137-44-111.eu-west-1.compute.amazonaws.com:8080/niths/';
+  this.baseUrl = 'http://ec2-46-137-46-84.eu-west-1.compute.amazonaws.com:8080/niths/';
   
   this.find = function(modelUrl, callbackSuccess, callbackError) {
       $.ajax({
