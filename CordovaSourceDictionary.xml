@@ -3,7 +3,6 @@
 <CordovaSourceDictionary>
     <FilePath Value="www\cordova-1.4.1.js"/>
     <FilePath Value="www\index.html"/>
-    <FilePath Value="www\index2.html"/>
     <FilePath Value="www\master.css"/>
     <FilePath Value="www\childbrowser\icon_arrow_left.png"/>
     <FilePath Value="www\childbrowser\icon_arrow_right.png"/>
@@ -55,9 +54,7 @@
     <FilePath Value="www\javascripts\external\phonegap-1.4.1.js"/>
     <FilePath Value="www\javascripts\external\scrollview.js"/>
     <FilePath Value="www\javascripts\external\jquery\jquery-mobile.js"/>
-    <FilePath Value="www\javascripts\external\jquery\jquery.easing.1.3.js"/>
     <FilePath Value="www\javascripts\external\jquery\jquery.js"/>
-    <FilePath Value="www\javascripts\external\jquery\jquery.mobile.scrollview.js"/>
     <FilePath Value="www\javascripts\fadder-groups\fadder-group-info.js"/>
     <FilePath Value="www\javascripts\fadder-groups\fadder-groups.js"/>
     <FilePath Value="www\javascripts\fadder-groups\fadder-children\confirm.js"/>
