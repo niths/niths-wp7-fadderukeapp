@@ -291,7 +291,7 @@
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
-    <None Include="www\stylesheets\common\fonts\COUTURE-Bold.ttf" />
+    <Content Include="www\stylesheets\common\fonts\COUTURE-Bold.ttf" />
     <Content Include="www\stylesheets\common\fonts\US101.TTF">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -35,13 +35,13 @@ $("#program-page").live('pageinit', function() {
 
   function getDayName(day){
     var weekday=new Array(7);
-    weekday[0]="S&Oslash;ndag";
-    weekday[1]="Mandag";
-    weekday[2]="Tirsdag";
-    weekday[3]="Onsdag";
-    weekday[4]="Torsdag";
-    weekday[5]="Fredag";
-    weekday[6]="L&Oslash;rdag";
+    weekday[0]="S&Oslash;NDAG";
+    weekday[1]="MANDAG";
+    weekday[2]="TIRSDAG";
+    weekday[3]="ONSDAG";
+    weekday[4]="TORSDAG";
+    weekday[5]="FREDAG";
+    weekday[6]="L&Oslash;RDAG";
     return weekday[day];
   }
 
