@@ -15,7 +15,7 @@ $('#scan-qr-page').live('pageinit', function() {
 
   $('#capture-qr-code').click(function() {
     navigator.camera.getPicture(uploadPhoto,
-        function(message) { showErr('get picture failed', null); },
+        function(message) { showMsg('get picture failed', null); },
 
         // Camera options
         { quality:         50,
