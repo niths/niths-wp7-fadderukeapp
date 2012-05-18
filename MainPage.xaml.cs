@@ -33,6 +33,8 @@ namespace niths_wp7_fadderuke_app
             new BackButtonHandler(this, PGView);
             _browserHelper = new WebBrowserHelper(PGView.Browser);
 
+            FlurryWP7SDK.Api.StartSession("LUJSPCZ36EJ134EPMCM2");
+
             PGView.Browser.ScriptNotify += Browser_ScriptNotify;
             PGView.Browser.Navigated += Browser_Navigated;
 
