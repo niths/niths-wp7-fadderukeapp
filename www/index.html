@@ -582,7 +582,7 @@
               //photoSwipeInstance = $("ul.gallery a", e.target).photoSwipe(options,  currentPage.attr('id'));
             return true;
           })
-          .live('pagehide', function(e){
+          .live('pagehide', function(e) {
             var currentPage = $(e.target),
               photoSwipeInstance = PhotoSwipe.getInstance(currentPage.attr('id'));
             if (typeof (photoSwipeInstance != "undefined") && photoSwipeInstance != null) {

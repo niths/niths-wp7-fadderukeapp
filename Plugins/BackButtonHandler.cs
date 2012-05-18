@@ -1,6 +1,7 @@
 ﻿using WP7CordovaClassLib.Cordova;
 using Microsoft.Phone.Controls;
 using System.ComponentModel;
+using System.Diagnostics;
 
 public class BackButtonHandler
 {
@@ -31,11 +32,22 @@ public class BackButtonHandler
     private void Page_BackKeyPress(object sender, CancelEventArgs e)
     {
         if (_browserHistoryLength > 1)
-        {
+        {   
             _phoneGapView.Browser.InvokeScript("eval", "history.go(-1)");
-            // 2 was changed to 1
-            _browserHistoryLength -= 1;
-            e.Cancel = true;
+            var canClose = _phoneGapView.Browser.InvokeScript("eval", "isUnableToClose()");
+
+            if (canClose.ToString() == "true")
+            {
+                // 2 was changed to 1
+                _browserHistoryLength -= 1;
+                e.Cancel = true;
+            }
+            else
+            {
+                _phoneGapView.Browser.InvokeScript("eval", "$('.ps-toolbar-close').click();");
+                _browserHistoryLength -= 1;
+                e.Cancel = true;
+            }
         }
     }
 }

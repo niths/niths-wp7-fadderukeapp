@@ -1,3 +1,17 @@
+var unableToClose = false;
+
+$('.ps-toolbar-close').live('click', function() {
+  unableToClose = true;
+});
+
+$('.fb-image').live('click', function() {
+  unableToClose = false;
+});
+
+isUnableToClose = function() {
+  return unableToClose;
+}
+
 $('#Gallery1').live('pageshow', function() {
   //getLatestImages();
   refresh();
@@ -50,7 +64,7 @@ $('#Gallery1').live('pageshow', function() {
       var imgT = images[i].images[6]['source'];
       var imgN = images[i].images[4]['source'];
       $('#lastPics').append(
-          '<li><a href="' + imgN + '" rel="external">' +
+          '<li><a class="fb-image" href="' + imgN + '" rel="external">' +
           '<img src="'+imgT+'" alt="NITHs" /></a></li>');
     }
     if(Code.PhotoSwipe.getInstance('Gallery1') == null){
