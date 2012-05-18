@@ -40,20 +40,23 @@ $("#dashboard-page").live('pageinit', function() {
    * Load the tweets
    */
   //TODO: Change url to match all with a certain hashtag, ex #fadderuka
-  function loadTweets(){
-    var response;
-    response = $.ajax({
-      url : 'http://search.twitter.com/search.json?q=%23nith&rpp=5',
-      type : 'get',
-      cache : false,
-      contentType : 'application/json',
-      timeout : 2000,
-      success : function(data) {
-        printTweets(data);
-      },
-      error : function(xhr, status) {
-        printErrorTweet();
-      }
+  function loadTweets() {
+    $.get(
+      'http://ec2-46-137-46-84.eu-west-1.compute.amazonaws.com:8080/niths/sociallinks?socialCommunity=twitter&category=fadderuka',
+      function(socialLinks) {
+        $.ajax({
+          url : socialLinks[0].address,
+          type : 'get',
+          cache : false,
+          contentType : 'application/json',
+          timeout : 2000,
+          success : function(data) {
+            printTweets(data);
+          },
+          error : function(xhr, status) {
+            printErrorTweet();
+          }
+        });
     });
   }
   /**
