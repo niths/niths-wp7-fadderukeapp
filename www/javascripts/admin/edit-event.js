@@ -70,6 +70,7 @@ $("#admin-edit-event-page").live('pageinit', function() {
         }
     );
 
+    //$('form').die('submit');
     return false;
   });
 });
@@ -142,9 +143,9 @@ function getDataFromForm(){
   if($('#place').val() != ''){
     json += 
       ', "location": {'+
-      '"place": "' + htmlEncode($('#place').val()) + '",'+
-      '"latitude": '+htmlEncode($('#latitude').val())+','+
-      '"longitude": ' + htmlEncode($('#longitude').val()) +
+      '"place": "' + $('#place').val() + '",'+
+      '"latitude": '+ $('#latitude').val()+','+
+      '"longitude": ' + $('#longitude').val() +
       '}';
   }
   return json + '}';

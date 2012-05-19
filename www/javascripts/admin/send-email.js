@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   $('#sendEmailForm').submit(function() {
+
     var vals = $(this).serialize();
     validateInput();
 
@@ -16,18 +17,19 @@ $(document).ready(function() {
         if (messageBody != null) {
           messageBody = messageBody.toString().replace('message-body=', '');
 
+
           sendEmail();
 
           function sendEmail() {
             $.mobile.showPageLoadingMsg();
 
-            var objs = JSON.parse(
-                sessionStorage.getItem('fadder_children_objs'));
+            var objs = JSON.parse(sessionStorage.getItem('fadder_children_objs'));
             var recipientAddresses = '';
 
             $.each(objs, function(i, fadderChild) {
               recipientAddresses += '"' + fadderChild.email + '",';
             });
+
 
             // The email which is to be sent to the server
             var jsonEmail =
@@ -40,10 +42,10 @@ $(document).ready(function() {
                 '"subject": "' + subject + '", ' + 
                 '"body": "' + messageBody + '" ' +
               '}';
-            
+
             var restClient = new RestHandler();
             restClient.create('broadcast', jsonEmail,  function(data) {  
-            showMsg("Email sendt", function() {
+            showMsg('Email sendt', function() {
               history.back();
             });
 

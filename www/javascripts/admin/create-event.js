@@ -1,5 +1,5 @@
 var locations = '';
-var currentLocationIndex = '';
+var currentLocationIndex = 0;
 
 $("#admin-create-event-page").live('pageshow', function() {
   $('#name2').val('');
@@ -27,7 +27,7 @@ function getDateTodayAsString(){
 }
 
 $("#admin-create-event-page").live('pageinit', function() {
-
+  searchLocation('Oslo');
   var restClient = new RestHandler(); //REST CLIENT
   var privacyDisplay = 
     '<label for="select-privacy" class="select">Velg:</label>'+
@@ -47,8 +47,12 @@ $("#admin-create-event-page").live('pageinit', function() {
   $('#create-event-place-search').click(function() {
     $('#create-event-location-selection').empty();
 
+    searchLocation($('#place2').val());
+  });
+
+  function searchLocation(loc) {
     $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address=' +
-        $('#place2').val() + '&sensor=true',
+        loc + '&sensor=true',
       function(data) {
         locations = data.results;
         console.log("----------------- " + locations);
@@ -69,7 +73,8 @@ $("#admin-create-event-page").live('pageinit', function() {
           }
         });
       });
-  });
+  }
+
   $('#create-event-location-selection').selectmenu();
 
   $('#create-event-location-selection').change(function() {
@@ -103,9 +108,9 @@ $("#admin-create-event-page").live('pageinit', function() {
 
 function getDataFromCreateForm() {
   var json = '{' +
-    '"name": "'+htmlEncode($('#name2').val()) + '"';
+    '"name": "'+ $('#name2').val() + '"';
   if ($('#description2').val() != '') {
-    json += ', "description": "'+ htmlEncode($('#description2').val())+ '"';
+    json += ', "description": "'+ $('#description2').val()+ '"';
   }
   if($('#startTime2').val() != ''){
     json += ', "startTime": "'+$('#startTime2').val().replace(' ', '-')+'"';

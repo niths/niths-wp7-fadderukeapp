@@ -54,9 +54,12 @@ $("#fadderchildren-pagen").live('pageshow', function() {
         // Replace the index with the given object at that index
         var objs = index.join(',').replace(/index=/g, '').replace(/(\d+)/g,
             function(match) { return JSON.stringify(fadderChildren[match]); });
-
+        objs = objs.replace(/:null/g, ':"null"');
+        objs = objs.replace(/\//g, '-');
+        
+ 
         sessionStorage.setItem('fadder_children_objs', '[' + objs + ']');
-
+        
         var method = vals.match(/radio-method=[\w-]+/g).toString().replace(
             /radio-method=/g, '');
 
