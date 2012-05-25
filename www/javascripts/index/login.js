@@ -70,6 +70,10 @@ $(document).ready(function() {
    * This method runs every time Childbrowser changes page
    */
   function configureLocationChanged() {
+    window.plugins.childBrowser.onClose = function() {
+      console.log('xxxxxxxxxx browser closed');
+    }
+
     window.plugins.childBrowser.onLocationChange = function(url) {
       var receiveTokenURL = new RegExp('^' + callbackURL + '#' +
         stateURLFragment + '&access_token=..*$');

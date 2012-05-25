@@ -10,6 +10,8 @@ public class BackButtonHandler
 
     private WP7CordovaClassLib.CordovaView _phoneGapView;
 
+    public static bool isCbOpen = false;
+
     public BackButtonHandler(PhoneApplicationPage page, WP7CordovaClassLib.CordovaView phoneGapView)
     {
         // subscribe to the hardware back-button
@@ -31,7 +33,14 @@ public class BackButtonHandler
 
     private void Page_BackKeyPress(object sender, CancelEventArgs e)
     {
-        if (_browserHistoryLength > 1)
+        if (isCbOpen)
+        {
+            _phoneGapView.Browser.InvokeScript("eval", "window.plugins.childBrowser.close();");
+            isCbOpen = false;
+            e.Cancel = true;
+        }
+
+        else if (_browserHistoryLength > 1)
         {   
             _phoneGapView.Browser.InvokeScript("eval", "history.go(-1)");
             var canClose = _phoneGapView.Browser.InvokeScript("eval", "isUnableToClose()");

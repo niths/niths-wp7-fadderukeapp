@@ -39,6 +39,8 @@ namespace WP7CordovaClassLib.Cordova.Commands
         // Display an inderminate progress indicator
         public void showWebPage(string options)
         {
+            BackButtonHandler.isCbOpen = true;
+
             BrowserOptions opts = JSON.JsonHelper.Deserialize<BrowserOptions>(options);
 
             Uri loc = new Uri(opts.url);
@@ -144,6 +146,9 @@ namespace WP7CordovaClassLib.Cordova.Commands
 
         void closeBtn_Click(object sender, EventArgs e)
         {
+
+            BackButtonHandler.isCbOpen = false;
+
             this.close();
         }
 

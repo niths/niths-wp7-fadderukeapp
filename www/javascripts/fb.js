@@ -58,6 +58,7 @@ $('#Gallery1').live('pageshow', function() {
         }
     );
 
+    /*
     $.ajax({
       url:      'https://graph.facebook.com/10150304760787369/photos',
       dataType: 'json',
@@ -70,13 +71,15 @@ $('#Gallery1').live('pageshow', function() {
         showErr('Ikke kontakt med facebook', null);
       }
     });
+    */
   }
 
   /**
    * Selects two images, one low res thumb, on normal
    * from facebook json response
    */
-  function handleImgsData(images){
+  function handleImgsData(images) {
+    $('#lastPics').empty();
     var html = '';
     for (var i = 0; i < images.length; i++) {
       var imgT = images[i].images[6]['source'];
